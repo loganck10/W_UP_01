@@ -21,6 +21,10 @@ mydata <- read.csv(file="pushups.csv")
 
 <!--In this section you explain what you are trying to show. Where did the data come from? What is the research or other question you are trying to answer?!-->
 
+We are trying to show the difference in between how many push-ups the skill, and line players can do. The data is coming from the variable chart in the pushups.csv file as we graph all of it by putting it into the boxplot, and numerical descriptive results showing us the possible outcome of this ever happening with the results.
+
+It contains the process of attempting to grab all the data from the variables, putting them into a box plot, getting the numerical 
+
 Create an Rstudio project in your shared space on rstudio.cloud.  Using the dataset called pushups from the tigerstats package in R; answer the question posed by this null and alternate hypothesis in an html markdown document.
 
 $H_0$: There is no difference between the average number of pushups of line vs skill players
@@ -31,11 +35,19 @@ $H_A$: The average number of pushups done by line players is statistically diffe
 
 <!--Decide on your methods: use "variable analysis" or other appropriate descriptors. Make sure to choose at least one graphical method and at least one numerical method.!-->
 
+The graphical method to give us results is to grab the data from push-ups and position to form it into the boxplot. The numercial method is to have the data and to find the mean, max, median, min and put it into a chart format where you are able to read it by number rather than the graph.
+
 # Results
 
 <!--Divide this section into two sub-sections: One for your descriptive results and one for your inferential results.!-->
 
+The results upon the descriptive results show that the skill players tend to do more push-ups then the line players.
+
+The results upon the inferential results show that the the odds of something like this happening is a very minuscule chance.
+
 ## Descriptive Results
+
+The line players tend to do less push-ups as the skill players nearly doing twice as much shown on the boxplot.
 
 ### Graphical Descriptive Results
 
@@ -52,12 +64,25 @@ boxplot(pushups~position,data=mydata)
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+favstats(pushups~position,data=mydata)
+```
+
+
 ## Inferential Results
 
 <!--State hypothesis clearly. Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc. Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
+```{r}
+t.test(pushups~position,data=mydata)
+```
+
+
+p=.000009421
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here. If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason. Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+
+The challenge value is 5%, it is much smaller than .05 therefore the odds of getting something like this happens .000009421 of the time.
 
